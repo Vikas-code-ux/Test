@@ -1,24 +1,80 @@
 #username {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 #gender {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 #phone {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 #address {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 #jobtitle {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 #email {
-    text-align: right;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+#dob {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+#namedivision {
+    display: block;
+}
+img {
+    border-radius: 50%;
+}
+#profile{
+    margin-left: 2%;
+}
+#name {
+    border: 1px black solid ;
+    
+}
+#genderdiv {
+    border: 1px black solid ;
+}
+#phonediv {
+    border: 1px black solid ;
+}
+#addressdiv {
+    border: 1px black solid ;
+}
+#dobdiv {
+    border: 1px black solid ;
+}
+#emaildiv {
+    border: 1px black solid ;
+}
+#jobdiv {
+    border: 1px black solid ;
 }
