@@ -17,18 +17,38 @@ export default () => {
 
     return (
         <div id='profile'>
-            <div id='namedivision'>
-            <img src={url} width="100" height="100"/> 
-            {person && <h1>{person.name.title + " " + person.name.first + " " + person.name.last}</h1>}
-            Update your photo and personal details
+            <div id='imgdivision'><img src={url} width="100px" height="auto"/>
+                <div id='name'>{person && <h1>{person.name.title + " " + person.name.first + " " + person.name.last}</h1>}
+                <p>Update your photo and personal details </p></div>
             </div>
-            <div id='username'><b>Username</b> {person && <div id='name'>{person.login.username}</div>} </div>
-            <div id='gender'><b>Gender</b> {person && <div id='genderdiv'>{person.gender}</div>} </div>
-            <div id='dob'><b>Date of Birth</b> <div id='dobdiv'>{moment(person && person.dob.date).format('DD MMM YYYY')}</div></div>
-            <div id='phone'><b>Phone Number</b> {person && <div id='phonediv'>{person.phone}</div>} </div>
-            <div id='address'><b>Address</b> {person && <div id='addressdiv'>{person.location.city} , {person.location.state} , {person.location.country}</div>} </div>
-            <div  id='jobtitle'><b>Job title</b> <div id='jobdiv'>Product Designer</div> </div>
-            <div id='email'><b>Alternative Contact Email</b> {person && <div id='emaildiv'>{person.email}</div>} </div>
+            <div id='username'>
+                <div id='namediv1'><b>Username</b></div> {person && <div id='namediv'>{person.login.username}</div>} 
+                <button >Edit</button>
+            </div>
+            <div id='gender'>
+                <div id='genderdiv1'><b>Gender</b></div> {person && <div id='genderdiv'>{person.gender}</div>} 
+                <button >Edit</button>
+            </div>
+            <div id='dob'>
+                <div id='dobdiv1'><b>Date of Birth</b></div> <div id='dobdiv'>{moment(person && person.dob.date).format('DD MMM YYYY')}</div>
+                <button >Edit</button>
+            </div>
+            <div id='phone'>
+                <div id='phonediv1'><b>Phone Number</b></div> {person && <div id='phonediv'>{person.phone}</div>} 
+                <button >Edit</button>
+            </div>
+            <div id='address'>
+                <div id='addressdiv1'><b>Address</b></div> {person && <div id='addressdiv'>{person.location.city} , {person.location.state} , {person.location.country}</div>} 
+                <button >Edit</button>
+            </div>
+            <div  id='jobtitle'>
+                <div id='jobdiv1'><b>Job title</b></div> <div id='jobdiv'>Product Designer</div> 
+                <button >Edit</button>
+            </div>
+            <div id='email'>
+                <div id='emaildiv1'><b>Alternative Contact Email</b></div> {person && <div id='emaildiv'>{person.email}</div>} 
+                <button >Edit</button>
+            </div>
         </div>
     );
 };

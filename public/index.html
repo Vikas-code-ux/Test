@@ -24,36 +24,37 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <style>
-      #map { height: 180px; width: 900px; display: block;}
-      #mapdiv {display: flex; flex-direction: row;}
-    </style>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin="">
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin="">
     </script>
+    <style>
+      #map { height: 180px; }
+    </style>
+    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="mapdiv"><div>Map with Location</div>
-    <div id="map"></div></div>
-    <div id="root"></div>
+    <div id="map"></div>
     <script>
-      var map = L.map('map').setView([20.5937, 78.9629], 4);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidmlrYXNodjIwIiwiYSI6ImNrem9iZGtweTA5enUybnFzdnZya3h2bW4ifQ.fZ926sZ3-eO1oT9dUt4yWQ', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: 'pk.eyJ1IjoidmlrYXNodjIwIiwiYSI6ImNrem9iZGtweTA5enUybnFzdnZya3h2bW4ifQ.fZ926sZ3-eO1oT9dUt4yWQ'
-        }).addTo(map);
+      import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+      <MapContainer center={[51.505, -0.09]} zoom={13}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[51.505, -0.09]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
     </script>
+    <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
