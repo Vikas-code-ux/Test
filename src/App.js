@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export default function App(){
+  const [userData , setUserData]= useState({});
+  const [userName , setUserName]= useState('');
+
+  function setDetails(){
+    console.log(userData);
+    setUserName(userData?.name?.title + " " + userData?.name?.first + " " + userData?.name?.last);
+  }
+  async function fetchUser(){
+    let response = await fetch('https://randomuser.me/api/');
+    let data = await response.json();
+    console.log(data);
+    return data;
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      let tempUserData = await fetchUser();
+      setUserData(tempUserData);
+    }
+    fetchData();
+  }, []);
+  useEffect(setDetails, [userData]);
+  return(
+    <div>
+      <h1>{userName}</h1>
     </div>
   );
 }
-
-export default App;
