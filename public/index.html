@@ -36,21 +36,27 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="map" style="height: 180px;"></div>
+    <div id="locate">
+      <div style="padding-top: 80px; padding-bottom: 80px; padding-right: 25px; padding-left: 20px">Map with Location</div>
+      <div id="map" style="height: 180px; width: 83%; padding-right: 10px;"></div>
+    </div>
+    <!-- <p>lat:<span id="lat"></span><br>lng:<span id="lng"></span></p> -->
     <script>
-      const mymap = L.map('map').setView([0, 0], 1);
-      const marker = L.marker([0,0]).addTo(mymap);
-      const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-      const tileUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-      const tiles = L.tileLayer(tileUrl,{attribution});
-      tiles.addTo(mymap);
-      const apiurl= "https://api.wheretheiss.at/v1/satellites/25544";
+      const apiurl= "https://randomuser.me/api/";
       async function getISS(){
         const response=await fetch (apiurl);
         const data= await response.json();
-        const {latitude, longitude}=data;
-        // L.marker([latitude,longitude]).addTo(mymap);
-        marker.setLatLng([latitude,longitude]);
+        const [cord]=data.results;
+        // document.getElementById('lat').textContent=cord.location.coordinates.latitude;
+        // document.getElementById('lng').textContent=cord.location.coordinates.longitude;
+        const mymap = L.map("map").setView([cord.location.coordinates.latitude,cord.location.coordinates.longitude], 5);
+        const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        var tileUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var tiles = L.tileLayer(tileUrl,{attribution});
+        tiles.addTo(mymap);
+        L.marker([cord.location.coordinates.latitude,cord.location.coordinates.longitude]).addTo(mymap);
+        // const marker = L.marker([0,0]).addTo(mymap);
+        // marker.setLatLng([cord.location.coordinates.latitude,cord.location.coordinates.longitude]);
       }
       getISS();
     </script>

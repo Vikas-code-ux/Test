@@ -13,11 +13,11 @@ export default () => {
         setPerson(item);
     }, []);
         
-    let url = person && person.picture.thumbnail;
+    let url = person && person.picture.large;
 
     return (
         <div id='profile'>
-            <div id='imgdivision'><img src={url} width="100px" height="auto"/>
+            <div id='imgdivision'><div id='image'><img src={url} width="100px" height="auto"/></div>
                 <div id='name'>{person && <h1>{person.name.title + " " + person.name.first + " " + person.name.last}</h1>}
                 <p>Update your photo and personal details </p></div>
             </div>
